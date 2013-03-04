@@ -181,7 +181,6 @@ YaziRengi =
 			$hex = $('#'+$id).find('.rt-secenekler li[data-value="' + $customCB.find('input').val() + '"]').attr('data-hex')
 			OnIzleme.changeColor number, $hex, taraf
 		)
-		$(this).prepend("<div class='dd-secenek-renk' style='background-color:" + $(this).find('.dd-secenek-aciklama').text() + ";'></div>")
 	checkPrice: ()->
 		alert 'Fiyata Bak!'		
 AsagiYukari = 
@@ -210,7 +209,7 @@ AsagiYukari =
 					if key is 38
 						AsagiYukari.up $control
 					else
-						AsagiYukari.asagi $control if key is 40
+						AsagiYukari.down $control if key is 40
 				else
 					e.returnValue = false
 					e.preventDefault() if e.preventDefault
