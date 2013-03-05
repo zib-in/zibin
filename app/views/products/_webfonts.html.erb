@@ -1,12 +1,15 @@
 <% fonts = ['Aclonica','Averia Serif Libre','Boogaloo','Candal','Cantora One','Capriola','Carter One','Chewy','Coda Caption','Comfortaa','Courgette','Creepster','Crete Round','Damion','Days One','Francois One','Fredoka One','Galindo','Gloria Hallelujah','Indie Flower','Irish Grover','Just Me Again Down Here','Leckerli One','Lobster Two','Londrina Solid','Love Ya Like A Sister','McLaren','Miniver','Piedra','Plaster','Poiret One','Quantico','Racing Sans One','Radley','Rammetto One','Revalia','Schoolbell','Smokum','Stint Ultra Condensed','Sue Ellen Francisco','Ubuntu Mono','Ultra','UnifrakturCook','Waiting for the Sunrise','Yesteryear'] %>
-<ul id="webfonts">
-  <h2><i></i> satır İÇİn bİr yazıtİpİ seçİnİz.</h2>
-  <% fonts.each_with_index do |v,k| %>
-    <li class="<%= v.parameterize %>">
-      <a href="#<%= k+3 %>"><%= v %></a>
-    </li>
-  <% end %>
-</ul>
+<div id="webfonts-tutucu">
+  <a class="kapatdgm" href="#"></a>
+  <ul id="webfonts">
+    <h2><i></i> satır İÇİn bİr yazıtİpİ seçİnİz.</h2>
+    <% fonts.each_with_index do |v,k| %>
+      <li class="<%= v.parameterize %>">
+        <a href="#<%= k+3 %>"><%= v %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <% content_for :head do %>
   <style type="text/css">
     <% fonts.each do |font| %>

@@ -1165,6 +1165,79 @@ nav {
 .wf-active #webfonts {
 	display:block
 }
+#olcutablosu-tasiyici {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:50;
+	display:none;
+	#olcutablosu {
+		position:relative;
+		margin:200px auto 0 auto;
+		width:600px;
+		background-color:#1b2a2a;
+		background-color:rgba(22,47,47,0.9);
+		border-radius:8px;
+		padding:20px;
+		color:#fff;
+		h2 {
+			color:#fff;
+			font-size:2em;
+			margin-top:0;
+			margin-bottom:20px;
+			font-weight:normal
+		}
+		p {
+			display:block;
+			background:url("/assets/store/olcutablosu.png") no-repeat;
+			float:left;
+			width:14.6%;
+			padding-top:92px;
+			font-size:1.2em;
+			margin:28px 0 0 0;
+			padding-left:5.4%
+		}
+		#tabloicerik {
+			background-color:#db8b00;
+			border-radius:8px;
+			width:77%;
+			padding:2% 2% 2% 0%;
+			float:left
+		}
+		table {
+			width:100%;
+			th {
+				color:#f7bd03;
+				font-weight:normal;
+				font-size:1.1em;
+				padding-bottom:5px
+			}
+			td {
+				font-size:1.3em;
+				border-bottom:1px solid #ed9b0c
+			}
+			th,td {
+				text-align:center;
+				padding:5px 10px;
+				border-right:1px solid #f7bd03;
+				&:last-child {
+					border-right:none
+				}
+			}
+			tr:last-child td {
+				border-bottom:none
+			}
+			.ab {
+				border:none;
+				color:#f7bd03;
+				font-weight:normal;
+				font-size:1.1em
+			}
+		}
+	}
+}
 #onizleme_hizalama {
 	position:absolute;
 	top:180px;

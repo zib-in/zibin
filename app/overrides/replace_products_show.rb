@@ -86,12 +86,12 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 						</div>
 						<div class="yazitipleri">
 							<h3>tİpİ</h3>
-							<a href="#" class="dgm">Bir seçim yap</a>
+							<a href="#" class="dgm">bİr seçİm yap</a>
 							<input type="hidden" name="yazitipi1" value="">
-							<a href="#" class="dgm">Maak uw keuze</a>
-							<input type="hidden" name="lettertype2" value="">
-							<a href="#" class="dgm">Maak uw keuze</a>
-							<input type="hidden" name="lettertype3" value="">
+							<a href="#" class="dgm">bİr seçİm yap</a>
+							<input type="hidden" name="yazitipi2" value="">
+							<a href="#" class="dgm">bİr seçİm yap</a>
+							<input type="hidden" name="yazitipi3" value="">
 						</div>
 						<div class="yazirenkleri">
 							<h3>rengİ</h3>
@@ -112,7 +112,7 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 							</div>
 						</div>
 					</div>
-					<p>*per extra kleur per zijde is meerkost van 5 €, per extra zijde is een meerkost van 10 €</p>
+					<p>*her kumaŞ yÜzÜne eklenen her renk İçİn 5tl, her bİr kumaŞ yÜzÜne İse ayrı olarak 10 tl ücret eklenir.</p>
 				</div>
 				<div class="sekme-panel" id="arka_taraf">
 					<div class="clearfix">
@@ -126,16 +126,16 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 							<input name="yazi6" type="text" value="">
 						</div>
 						<div class="yazitipleri">
-							<h3>YazI tİpİ</h3>
-							<a href="#" class="dgm">Bir seçim yap</a>
+							<h3>tİpİ</h3>
+							<a href="#" class="dgm">bİr seçİm yap</a>
 							<input type="hidden" name="yazitipi4" value="">
-							<a href="#" class="dgm">Maak uw keuze</a>
-							<input type="hidden" name="lettertype5" value="">
-							<a href="#" class="dgm">Maak uw keuze</a>
-							<input type="hidden" name="lettertype6" value="">
+							<a href="#" class="dgm">bİr seçİm yap</a>
+							<input type="hidden" name="yazitipi5" value="">
+							<a href="#" class="dgm">bİr seçİm yap</a>
+							<input type="hidden" name="yazitipi6" value="">
 						</div>
 						<div class="yazirenkleri">
-							<h3>YazI rengİ</h3>
+							<h3>rengİ</h3>
 							<select id="yazirengi4" name="yazirengi4" data-savedval=""><option value="0">bİr seçİm yap</option><option value="24" data-hex="#b5d568">Appelgroen</option><option value="23" data-hex="#fcdb3e">Geel</option><option value="34" data-hex="#a5916e">Goud metallic</option><option value="25" data-hex="#387764">Groen</option><option value="27" data-hex="#294ca0">Koningsblauw</option><option value="29" data-hex="#428ccb">Blauw</option><option value="26" data-hex="#2f3857">Marineblauw</option><option value="31" data-hex="#f4812e">Oranje</option><option value="28" data-hex="#a9cae9">Pastelblauw</option><option value="32" data-hex="#df4640">Rood</option><option value="30" data-hex="#f6b7c7">Roze</option><option value="21" data-hex="#ffffff">Wit</option><option value="33" data-hex="#a2a9b3">Zilver metalic</option><option value="22" data-hex="#000000">Zwart</option></select>
 							<select id="yazirengi5" name="yazirengi5" data-savedval=""><option value="0">bİr seçİm yap</option><option value="24" data-hex="#b5d568">Appelgroen</option><option value="23" data-hex="#fcdb3e">Geel</option><option value="34" data-hex="#a5916e">Goud metallic</option><option value="25" data-hex="#387764">Groen</option><option value="27" data-hex="#294ca0">Koningsblauw</option><option value="29" data-hex="#428ccb">Blauw</option><option value="26" data-hex="#2f3857">Marineblauw</option><option value="31" data-hex="#f4812e">Oranje</option><option value="28" data-hex="#a9cae9">Pastelblauw</option><option value="32" data-hex="#df4640">Rood</option><option value="30" data-hex="#f6b7c7">Roze</option><option value="21" data-hex="#ffffff">Wit</option><option value="33" data-hex="#a2a9b3">Zilver metalic</option><option value="22" data-hex="#000000">Zwart</option></select>
 							<select id="yazirengi6" name="yazirengi6" data-savedval=""><option value="0">bİr seçİm yap</option><option value="24" data-hex="#b5d568">Appelgroen</option><option value="23" data-hex="#fcdb3e">Geel</option><option value="34" data-hex="#a5916e">Goud metallic</option><option value="25" data-hex="#387764">Groen</option><option value="27" data-hex="#294ca0">Koningsblauw</option><option value="29" data-hex="#428ccb">Blauw</option><option value="26" data-hex="#2f3857">Marineblauw</option><option value="31" data-hex="#f4812e">Oranje</option><option value="28" data-hex="#a9cae9">Pastelblauw</option><option value="32" data-hex="#df4640">Rood</option><option value="30" data-hex="#f6b7c7">Roze</option><option value="21" data-hex="#ffffff">Wit</option><option value="33" data-hex="#a2a9b3">Zilver metalic</option><option value="22" data-hex="#000000">Zwart</option></select>
@@ -153,7 +153,7 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 							</div>
 						</div>
 					</div>
-					<p>*per extra kleur per zijde is meerkost van 5 €, per extra zijde is een meerkost van 10 €</p>
+					<p>*her kumaŞ yÜzÜne eklenen her renk İçİn 5tl, her bİr kumaŞ yÜzÜne İse ayrı olarak 10 tl ücret eklenir.</p>
 				</div>
 			</div>
 			<div class="dogrulama"></div>
@@ -197,13 +197,11 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 </div>
 <div id="turuncualt">
 </div>
-<div id="olcutablosu_tasiyici">
+<div id="olcutablosu-tasiyici">
+	<%= render :partial => 'products/olcutablosu' %>
 </div>
 <div id="webfonts-tasiyici">
-	<div id="webfonts-tutucu">
-		<a class="kapatdgm" href="#"></a>
-		<%= render :partial => 'products/webfonts' %>
-	</div>
+	<%= render :partial => 'products/webfonts' %>
 </div>
 <% content_for :belgesonu do %>
 	<%= javascript_include_tag "store/bootstrap-tab", "store/customcb", "store/social", "store/product_page" %>
