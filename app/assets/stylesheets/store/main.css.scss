@@ -276,6 +276,9 @@ nav {
 		}
 	}
 }
+#sepet_sayfasi #ana {
+	height:100%
+}
 #ana {
 	background:url("/assets/store/ap_doku.gif");
 	height:760px;
@@ -288,6 +291,36 @@ nav {
 		}
 		&:hover {
 			color:#ff6da3;
+		}
+		&.geri {
+			display:block;
+			width:80px;
+			background:url("/assets/store/geriok.png") no-repeat;
+			color:#fff;
+			font-size:1.2em;
+			padding:5px 0 5px 25px;
+			background-position:0 22px;
+			&:hover {
+				text-decoration:underline
+			}
+			&.krengiok { /* brownarrow */
+				background-image:url("/assets/store/geriok2.png");
+				padding-left:55px;
+				background-position:0
+			}
+		}
+		&.purpletag {
+			display:block;
+			width:212px;
+			height:61px;
+			background:url("/assets/store/purpletag.png") no-repeat;
+			color:#fff;
+			font-size:2em;
+			text-align:center;
+			padding-top:10px;
+			&:hover {
+				background-position:-216px 0
+			}
 		}
 	}
 	#geriana {
@@ -410,7 +443,7 @@ nav {
 			bottom:0
 		}
 	}
-	&.uzatilmis {
+	&.uzatilik {
 		background:url("/assets/store/ap_turuncu_uzatilmis.png") no-repeat top center;
 		height:auto;
 		margin-bottom:70px;
@@ -446,6 +479,303 @@ nav {
 	margin-left:auto;
 	margin-right:auto;
 	max-width:1985px
+}
+#sepet {
+	padding-top:105px;
+	position:relative;
+	#kampanya {
+		position:absolute;
+		top:76px;
+		right:-47px;
+		background:url("/assets/store/kampanya_notu.png") no-repeat;
+		width:210px;
+		height:110px
+	}
+	table {
+		table-layout:fixed;
+		i {
+			color:#faecc7;
+			font-size:1em
+		}
+		th {
+			color:#f7bd03;
+			font-weight:normal;
+			border-right:1px solid #f7bd03;
+			&:last-child {
+				border:none
+			}
+			&.urun,&.kumrenk {
+				text-align:left;
+				padding-left:10px
+			}
+			&.toplam {
+				margin-left:5px;
+			}
+		}
+		td {
+			color:#fff;
+			border-top:1px solid #ed9b0c;
+			border-right:1px solid #f7bd03;
+			font-size:1.2em;
+			padding:10px 10px;
+			vertical-align:top;
+			p {
+				margin:0;
+				overflow:hidden
+			}
+			&:last-child {
+				border-right:none
+			}
+			&.kumrenk {
+				font-size:1.5em;
+				padding-top:5px
+			}
+			&.ucret,&.toplam {
+				font-size:1.5em;
+				padding-top:5px
+			}
+			&.onizleme {
+				width:60px;
+				padding-top:22px;
+				a {
+					background:url("/assets/store/goz.png") no-repeat;
+					display:block;
+					width:26px;
+					height:19px;
+					margin:0 auto;
+					&:hover {
+						background-image:url("/assets/store/gozhover.png")
+					}
+				}
+			}
+			&.urun {
+				padding-top:18px
+			}
+			&.urun, &.urun p {
+				width:325px
+			}
+			&.beden {
+				width:30px;
+				text-align:center;
+				padding-top:18px
+			}
+			&.kumrenk {
+				width:180px;
+				padding-top:14px
+			}
+			&.miktar {
+				width:50px;
+				padding-top:11px;
+				input {
+					width:100%;
+					text-align:center;
+					padding-left:0
+				}
+			}
+			&.ucret {
+				width:70px;
+				text-align:center;
+				padding-top:14px
+			}
+			&.toplam {
+				width:100px;
+				text-align:right;
+				position:relative;
+				padding-right:20px;
+				padding-left:5;
+				color:#373737;
+				padding-top:14px;
+				a {
+					&.kaldir {
+						position:absolute;
+						right:-23px;
+						top:19px;
+						display:block;
+						width:15px;
+						height:16px;
+						background:url("/assets/store/kaldir.png") no-repeat
+					}
+					&.duzenle {
+						position:absolute;
+						right:-25px;
+						top:-5px;
+						display:block;
+						width:16px;
+						height:16px;
+						background:url("/assets/store/duzenle.png") no-repeat
+					}
+				}
+				span {
+					margin-right:5px
+				}
+			}
+		}
+	}
+	#table-alti {
+		margin-top:5px;
+		h2 {
+			margin-top:0;
+			margin-bottom:5px
+		}
+		#hediyepak{
+			width:440px
+		}
+		.sol {
+			float:left;
+			width:620px;
+			padding-top:15px;
+			#minik_pak {
+				width:170px;
+				margin-right:10px;
+				float:left;
+				height:150px;
+				display:block;
+				background:url("/assets/store/hediyepak_min.png") no-repeat;
+				background-size:100%;
+				&:hover {
+					background-image:url("/assets/store/hediyepak_min_hover.png")
+				}
+			}
+			#solicerik {
+				float:left;
+				width:440px
+			}
+			#promo {
+				h2 {
+					margin-top:20px;
+					margin-bottom:0
+				}
+				p {
+					font-family:'PT Sans', serif;
+					color:#553600;
+					float:left;
+					margin-top:5px;
+					margin-bottom:5px;
+					width:100%;
+					&:last-child {
+						font-family:'BebasNeueRegular';
+						font-size:1.5em;
+						margin:7px 0 0 10px;
+						width:auto
+					}
+					&.check {
+						background:url("/assets/store/tik.png") no-repeat;
+						text-indent:-9999px
+					}
+				}
+				input {
+					float:left;
+					width:192px;
+					padding-right:10px;
+					font-size:1.1em;
+					color:#553600;
+					line-height:1;
+					letter-spacing:5px
+				}
+			}
+		}
+		.sag {
+			float:left;
+			width:320px;
+			width:317px;
+			margin-left:23px;
+			aside {
+				border-radius:8px;
+				margin-bottom:5px
+			}
+			p {
+				margin:0;
+				color:#fff;
+				float:left;
+				-o-box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				-webkit-box-sizing:border-box;
+				box-sizing:border-box;
+				&.baslik {
+					width:50%;
+					font-size:1.1em;
+					padding:10px 0 10px 15px
+				}
+				&.ucret {
+					width:50%;
+					font-size:1.5em;
+					padding:5px 35px 5px 0;
+					text-align:right
+				}
+			}
+			#aratop {
+				background-color:#c17a00
+			}
+			#teslimat {
+				background:#db8b00 url("/assets/store/asagibeyazok.png") no-repeat 290px center;
+				cursor:pointer;
+				&.open {
+					background-image:url("/assets/store/yukaribeyazok.png")
+				}
+			}
+			#toplam {
+				background-color:#553600;
+				p {
+					&.baslik {
+						font-size:1.8em
+					}
+					&.ucret {
+						font-size:2em;
+						padding-top:8px
+					}
+				}
+			}
+			.secenekler aside {
+				background-color:#c17a00;
+				margin-left:20px;
+				&::hover {
+					background-color:#825500
+				}		
+			}
+			#teslimat2 {
+				.satir {
+					position:relative;
+					min-height:48px;
+					margin-bottom:5px
+				}
+				button {
+					position:absolute;
+					top:9px;
+					left:0
+				}
+				label {
+					background:#db8b00;
+					border-radius:8px;
+					width:90%;
+					font-family:'BebasNeueRegular';
+					float:right;
+					cursor:pointer;
+					p {
+						&.baslik {
+							font-size:1.1em;
+							width:60%
+						}
+						&.ucret {
+							font-size:1.5em;
+							padding-top:8px;
+							width:40%
+						}
+					}
+				}
+			}
+		}
+	}
+	#mesaj {
+		color:#553600;
+		font-weight:bold;
+		&:visited {
+			color:#553600
+		}
+		&:hover {
+			color:#553600;
+			text-decoration:underline
+		}
+	}
 }
 #slidertasiyici {
 	overflow:hidden
@@ -1238,6 +1568,127 @@ nav {
 		}
 	}
 }
+#adimlar {
+	width:844px;
+	margin:0 auto;
+	li {
+		float:left;
+		text-align:center;
+		list-style-type:none;
+		background:url("/assets/store/adimdots.png") no-repeat right center;
+		padding-right:36px;
+		a {
+			font-family:'BebasNeueRegular';
+			font-weight:normal;
+			color:white;
+			width:140px;
+			display:block;
+			font-size:1.8em;
+			background-color:#db8b00;
+			border-radius:8px;
+			color:#fff;
+			padding:5px 0px 5px 0;
+			position:relative;
+			i {
+				display:block;
+				font-style:normal;
+				font-size:0.7em;
+				color:#fdd748;
+				line-height:1.1;
+				font-family:'BebasNeueRegular'
+			}
+			&:hover {
+				color:#faecc7
+			}
+			&:visited {
+				color:white
+			}
+		}
+		&.active {
+			background-position:140px center;
+			a {
+				background-color:#da1b62;
+				&:after {
+					content:" ";
+					display:block;
+					position:absolute;
+					width:27px;
+					height:11px;
+					left:57px;
+					bottom:0;
+					margin-bottom:-11px;
+					background:url("/assets/store/adimhover.png") no-repeat
+				}
+			}
+		}
+		&.done {
+			background-position:111px center;
+			a {
+				background-color:#553600
+			}
+		}
+		&.last {
+			background:none;
+			padding-right:0
+		}
+	}
+}
+.adim {
+	margin-top:20px;
+	h2 {
+		font-weight:normal;
+		color:#fff
+	}
+	.table-tasiyici {
+		background-color:#db8b00;
+		padding:20px;
+		border-radius:8px
+	}
+	.radiobuttons {
+		button {
+			width:20px;
+			height:20px;
+			display:block;
+			float:left;
+			border-radius:10px;
+			background-color:#db8b00;
+			position:relative;
+			border:none;
+			margin-top:4px;
+			.secili {
+				background:url("/assets/store/tik.png") no-repeat;
+				position:absolute;
+				top:-5px;
+				left:0px;
+				width:28px;
+				height:27px
+			}
+		}
+		label {
+			float:left;
+			font-size:1em;
+			margin-left:20px;
+			margin-right:0px;
+			font-family:'PT Sans', sans-serif;
+			color:#553600;
+			width:400px
+		}
+	}
+	.adimfooter {
+		margin-top:15px;
+		a {
+			float:right;
+			&.geri {
+				width:74px
+			}
+			&.purpletag {
+				float:right;
+				color:#fff;
+				margin-bottom:20px
+			}
+		}
+	}
+}
 #onizleme_hizalama {
 	position:absolute;
 	top:180px;
@@ -1778,32 +2229,6 @@ footer {
 		}
 	}
 } */
-.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after {
-	content:""
-}
-pre,blockquote {
-	border:1px solid #999;
-	page-break-inside:avoid
-}
-thead {
-	display:table-header-group
-}
-tr,img {
-	page-break-inside:avoid
-}
-img {
-	max-width:100% !important
-}
-@page {
-	margin:0.5cm
-}
-p,h2,h3 {
-	orphans:3;
-	widows:3
-}
-h2,h3 {
-	page-break-after:avoid
-}
 form input[type='number']::-webkit-outer-spin-button,form input[type='number']::-webkit-inner-spin-button {
 	-webkit-appearance:none;
 	margin:0

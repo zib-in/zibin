@@ -198,10 +198,10 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 <div id="turuncualt">
 </div>
 <div id="olcutablosu-tasiyici">
-	<%= render :partial => 'products/olcutablosu' %>
+	<%= render :partial => 'spree/products/olcutablosu' %>
 </div>
 <div id="webfonts-tasiyici">
-	<%= render :partial => 'products/webfonts' %>
+	<%= render :partial => 'spree/products/webfonts' %>
 </div>
 <% content_for :belgesonu do %>
 	<%= javascript_include_tag "store/bootstrap-tab", "store/customcb", "store/social", "store/product_page" %>
