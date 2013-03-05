@@ -252,15 +252,15 @@ OnIzleme =
 	init: ()->
 		if $('#detaylar').exists()
 			@changeProductColor $('#renk input').val()
-			$('#on_taraf .yazi input').each ()->
+			$('#on_taraf .yazilar input').each ()->
 				value = $(this).val()
 				if value?
-					$index = $('#on_taraf .yazi').children('input').index $(this)
+					$index = $('#on_taraf .yazilar').children('input').index $(this)
 					$('#onizleme .on_taraf .resim p').eq($index).html value
-			$('#arka_taraf .yazi input').each ()->
+			$('#arka_taraf .yazilar input').each ()->
 				value = $(this).val()
 				if value?
-					$index = $('#arka_taraf .yazi').children('input').index $(this)
+					$index = $('#arka_taraf .yazilar').children('input').index $(this)
 					$('#onizleme .arka_taraf .resim p').eq($index).html value
 			$('#on_taraf .buyukluk input').each ()->
 				value = $(this).val()
@@ -271,10 +271,10 @@ OnIzleme =
 				value = $(this).val()
 				index = $('#arka_taraf .buyukluk').children('div').index $(this).parent()
 				if value? then OnIzleme.changeSize index, value + 'px', 'arka_taraf' else OnIzleme.changeSize index, AsagiYukari.min + 'px', 'arka_taraf'
-			$('.yazi').delegate 'input', 'keyup', ()->
+			$('.yazilar').delegate 'input', 'keyup', ()->
 				$number = $(this).parent().children('input').index this
 				$("#onizleme .#{OnIzleme.side} .resim p").eq($number).html $(this).val()
-			$('.yazi').delegate 'input', 'blur', ()->
+			$('.yazilar').delegate 'input', 'blur', ()->
 				$number = $(this).parent().children('input').index this
 				YaziRengi.checkPrice if $("##{OnIzleme.side} .yazitipleri input").eq($number).val() isnt ''
 		$('#degistir a').click $.proxy (e)->
