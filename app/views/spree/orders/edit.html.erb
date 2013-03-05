@@ -1,0 +1,120 @@
+<% @body_id = 'sepet_sayfasi' %>
+<div id="turuncu" class="uzatilik">
+	<div id="turuncu_ap"></div>
+	<section id="sepet" class="wrap">
+		<h1>alıŞverİŞ sepetİ</h1>
+		<div id="kampanya"></div>
+		<ul id="adimlar" class="clearfix">
+			<li class="active">
+				<a>adım 1 <i>alıŞverİŞ sepetİ</i></a>
+			</li>
+			<li>
+				<a>adım 2<i>adres bİlgİlerİ</i></a>
+			</li>
+			<li>
+				<a>adım 3<i>Ödeme tÜrÜ</i></a>
+			</li>
+			<li><a>adım 4<i>gÜvenlİ Ödeme</i></a></li>
+			<li class="last"><a>adım 5<i>onay</i></a></li>
+		</ul>
+		<div class="adim">
+			<form>
+				<fieldset>
+					<div class="table-tasiyici">
+						<table cellspacing="0">
+							<thead>
+								<tr>
+									<th class="onizleme">Önİzleme</th>
+									<th class="urun">ÜrÜn</th>
+									<th class="beden">beden</th>
+									<th class="kumrenk">kumaŞrengİ</th>
+									<th class="miktar">mİktar</th>
+									<th class="ucret">Ücret</th>
+									<th class="toplam">toplam</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="0">
+									<td class="onizleme">
+										<a href="#" data-id="0"></a>
+									</td>
+									<td class="urun">
+										<p>Muts <i>deneme  ...</i></p>
+									</td><td class="beden"></td>
+									<td class="kumrenk">Licht roze</td>
+									<td class="miktar">
+										<input type="text" value="1"></td>
+										<td class="ucret">10,00 €</td>
+										<td class="toplam">
+											<div style="position:relative;">
+												<span>10,00 €</span>
+												<a href="#" class="kaldir" alt="Kaldır"></a>
+												<a href="/nl/product/muts.html?referentie=0&amp;stap=1" class="duzenle" alt="Düzenle"></a>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+					<div id="table-alti" class="clearfix">
+						<div class="sol">
+							<a id="minik_pak" href="#"></a>
+							<div id="solicerik">
+								<h2>hedİye paketİ</h2>
+								<div class="radiobuttons clearfix" id="hediyepak">
+									<button rel="evet" id="hediye_y"></button>
+									<label for="hediye_y">Ja, ik wens een verpakking (+5 €) met gepersonaliseerde boodschap. <a href="#" id="mesaj">Schrijf hier uw bericht...</a></label>
+									<button rel="hayir" id="hediye_n">
+										<div class="secili"></div>
+									</button>
+									<label for="hediye_n">Nee, ik wens geen cadeauverpakking.</label>
+									<input type="hidden" name="hediyepaketi" value="hayir">
+								</div>
+								<div id="promo">
+									<h2>Vul hier uw promocode in</h2>
+									<p>Voer een code in als u er een heeft.</p>
+									<input id="inputpromo" type="text" value="">
+									<p class="secili"></p>
+								</div>
+								<div class="dogrulama"></div>
+							</div>
+						</div>
+						<div class="sag">
+							<aside id="aratop" class="clearfix">
+								<p class="baslik">ara toplam <i class="kdv">+ k.d.v.</i></p>
+								<p class="ucret">10,00 TL</p>
+							</aside>
+							<div class="radiobuttons clearfix" id="teslimat2">
+								<div class="satir">
+									<button rel="1" id="1">
+										<div class="secili"></div>
+									</button>
+									<label for="1">
+										<p class="baslik">Yurtiçi teslimat</p>
+										<p class="ucret">+ 6,20 TL</p>
+									</label>
+								</div>
+								<div class="satir">
+									<button rel="2" id="2"></button>
+									<label for="2">
+										<p class="baslik">Yurtdışı teslimat</p><p class="ucret">+ 12,45 TL</p>
+									</label>
+								</div>
+								<input type="hidden" name="kargo" value="1">
+							</div>
+							<aside id="toplam" class="clearfix">
+								<p class="baslik">Toplam</p>
+								<p class="ucret">27,20 €</p>
+							</aside>
+							<div class="adimfooter clearfix">
+								<a href="/nl/checkout/stap2.html" title="Kişisel bilgileriniz" class="purpletag">devam et</a>
+								<a href="/nl/producten.html" title="Ürünler" class="geri">alıŞverİŞe gerİ dÖn</a>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</section>
+</div>
+<div id="turuncu_golge"></div>
