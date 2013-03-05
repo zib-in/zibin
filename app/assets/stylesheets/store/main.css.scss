@@ -1088,6 +1088,83 @@ nav {
 		}
 	}
 }
+#webfonts-tasiyici {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:200;
+	display:none
+}
+#ana #webfonts-tutucu {
+	margin:50px auto;
+	background-color:#1b2a2a;
+	background-color:rgba(22,47,47,0.9);
+	border-radius:8px;
+	-moz-border-radius:8px;
+	padding:30px;
+	min-height:755px;
+	height:auto;
+	position:relative;
+	width:800px;
+	margin-bottom:20px;
+	h2 {
+		color:#fff;
+		font-size:2em;
+		margin-top:0;
+		margin-bottom:20px;
+		font-weight:normal;
+		i {
+			color:#edac00;
+			font-style:normal
+		}
+	}
+	ul {
+		li {
+			list-style-type:none;
+			float:left;
+			margin:5px;
+			padding:7px 10px 10px 10px;
+			background:white;
+			border-radius:5px;
+			width:170px;
+			height:30px;
+			text-align:center;
+			overflow:hidden
+		}
+		a {
+			color:#000;
+			font-size:1.5em;
+			text-decoration:none;
+			line-height:1.5
+		}
+	}
+}
+.kapatdgm {
+	position:absolute;
+	top:0;
+	right:0;
+	display:block;
+	width:47px;
+	height:47px;
+	background:url("/assets/store/kapatdgm.png") no-repeat;
+	top:-10px;
+	right:-20px
+}
+#webfonts {
+	display:none;
+	width:100%
+}
+.wf-loading #webfonts-tutucu {
+	background:rgba(22,47,47,0.9) url("/assets/store/loader.gif") no-repeat center center
+}
+.wf-active #webfonts-tutucu {
+	background-color:rgba(22,47,47,0.9)
+}
+.wf-active #webfonts {
+	display:block
+}
 #onizleme_hizalama {
 	position:absolute;
 	top:180px;

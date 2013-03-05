@@ -107,7 +107,7 @@ Checkboxes =
 	getValue: (chk)->
 		$(chk + ' input').val()
 YaziTipi =
-	titlenumbers: ["birinci", "ikinci", "ucuncu"]
+	titlenumbers: ["Bİrİncİ", "İkİncİ", "ÜÇÜncÜ"]
 	init: ()->
 		@setup "#on_taraf"
 		@setup "#arka_taraf"
