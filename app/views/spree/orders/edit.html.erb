@@ -61,7 +61,7 @@
 							<a id="minik_pak" href="#"></a>
 							<div id="solicerik">
 								<h2>hedİye paketİ</h2>
-								<div class="radiobuttons clearfix" id="hediyepak">
+								<div class="radiobuttonlar clearfix" id="hediyepak">
 									<button rel="evet" id="hediye_y"></button>
 									<label for="hediye_y">Ja, ik wens een verpakking (+5 €) met gepersonaliseerde boodschap. <a href="#" id="mesaj">Schrijf hier uw bericht...</a></label>
 									<button rel="hayir" id="hediye_n">
@@ -84,7 +84,7 @@
 								<p class="baslik">ara toplam <i class="kdv">+ k.d.v.</i></p>
 								<p class="ucret">10,00 TL</p>
 							</aside>
-							<div class="radiobuttons clearfix" id="teslimat2">
+							<div class="radiobuttonlar clearfix" id="teslimat2">
 								<div class="satir">
 									<button rel="1" id="1">
 										<div class="secili"></div>
@@ -118,3 +118,19 @@
 	</section>
 </div>
 <div id="turuncu_golge"></div>
+
+<div id="hedpakmesaj-tasiyici">
+	<div id="hedpakmesaj" class="clearfix">
+		<a href="#" class="kapatdgm"></a>
+		<h3>Uw persoonlijke <i>boodschap</i></h3>
+		<span>42</span>
+		<textarea rows="3" cols="14"></textarea>
+		<h4>Kies een lettertype</h4>
+		<input type="hidden" name="yazitipi" value="4">
+		<a id="yazitipi" href="#">Aclonica</a>
+		<a href="#" id="kaydet" class="dgm">Bewaar</a>
+	</div>
+</div>
+<% content_for :belgesonu do %>
+	<%= javascript_include_tag "store/social", "store/product_page" %>
+<% end %>

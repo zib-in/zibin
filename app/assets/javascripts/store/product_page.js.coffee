@@ -1,5 +1,21 @@
 $.fn.exists = ()->
 	@length > 0
+$.fn.limit = (limit, element)->
+	alert limit + element
+#$.fn.extend =
+#	limit : (limit, element) ->
+#		self = $(this)
+#		$(this).focus ()->
+#			interval = window.setInterval substring, 100
+#		$(this).blur ()->
+#			clearInterval interval
+#			substring()
+#		substringFunction = "function substring(){ var val = $(self).val();var length = val.length;if(length > limit){$(self).val($(self).val().substring(0,limit));}"
+#		substringFunction += "if($(element).html() != limit-length){$(element).html((limit-length<=0)?'0':limit-length);}" if typeof element isnt 'undefined'
+#		substringFunction += "}";
+#		eval substringFunction
+#
+#		substring();
 
 Details = 
 	init: ()->
@@ -50,6 +66,67 @@ Details =
 		$('#olcutablosu').click (e)->
 			e.preventDefault()
 			e.stopPropagation()
+
+Sepet = 
+	init: ()->
+		onlyNumbers 'table input', 2
+		RadioButtons.init()
+		#SubOptions.init
+		$('#mesaj').click (e)->
+			e.preventDefault()
+			$('#hedpakmesaj-tasiyici').show()
+		$('#hedpakmesaj-tasiyici, #kaydet').click (e)->
+			e.preventDefault()
+			$('#hedpakmesaj-tasiyici').hide()
+			if $('#hedpakmesaj-tasiyici textarea').val isnt '' then $('#mesaj').html "Eklediğiniz mesajı düzenleyin..." else $('#mesaj').html "Bir de kişisel mesajınızı ekleyin..."
+		$('#hedpakmesaj').click (e)->
+			e.preventDefault()
+			e.stopPropagation()
+		$('#hedpakmesaj .kapatdgm').click (e)->
+			e.preventDefault()
+			$('#hedpakmesaj-tasiyici').hide()
+		$('#minik_pak').click (e)->
+			e.preventDefault()
+			$('#hedpak-tasiyici').show()
+		$('#hedpak-tasiyici').click (e)->
+			e.preventDefault()
+			$(this).hide()
+		$('#hedpak-tasiyici .kapatdgm').click (e)->
+			e.preventDefault()
+			$('#hedpak-tasiyici').hide()
+		$('#hedpak-onizleme').click (e)->
+			e.preventDefault()
+			e.stopPropagation()
+		$('#yazitipi').click (e)->
+			e.preventDefault()
+			e.stopPropagation()	
+			$('#webfonts-tasiyici').show().css 'overflow', 'visible'
+		$('#webfonts').click (e)->
+			e.preventDefault();
+			e.stopPropagation();
+		$('#webfonts').delegate 'a', 'click', (e)->
+			e.stopPropagation()
+			e.preventDefault()
+			$holder = $('#webfonts-tutucu');
+			id = $(this).att('href').substring 1
+			side = $holder.attr 'data-side'
+			line = $holder.attr 'data-line'
+			fontclass = $(this).parent().attr 'class'
+			fontname = $(this).html()
+			$('#yazitipi').html fontname
+			$('input[name="yazitipi"').val id
+			$('#hedpakmesaj textarea').attr 'class', fontclass
+			$('#webfonts-tasiyici').hide()
+		$('#webfonts-tutucu .kapatdgm').click (e)->
+			e.preventDefault()
+			e.stopPropagation()
+			$('#webfonts-tasiyici').hide()
+		$('#webfonts-tasiyici').click (e)->
+			e.preventDefault()
+			$(this).hide()
+		$('#hedpakmesaj textarea').limit '42', $('#hedpakmesaj span')
+		id = $('input[name="yazitipi"]').val()
+		if id? then $('#hedpakmesaj textarea').attr 'class', $("#webfonts a[href='##{id}']").parent().attr 'class'
 
 Sekmeler = 
 	init: ()->
@@ -343,6 +420,8 @@ onlyNumbers = (selector, number)->
 			e.preventDefault() if e.preventDefault
 		)
 
-if $('#detaylar').exists
+if $('#detaylar').exists()
 	Details.init();
 	YaziRengi.init();
+if $('#sepet').exists()
+	Sepet.init()
