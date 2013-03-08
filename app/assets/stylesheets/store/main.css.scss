@@ -2038,6 +2038,105 @@ nav {
 		background-position: -80px;
 	}
 }
+#hedpakmesaj-tasiyici {
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:5;
+	top:0;
+	display:none
+}
+#hedpakmesaj {
+	width:500px;
+	background-color:#1b2a2a;
+	background:rgba(23,47,47,0.9);
+	border-radius:8px;
+	padding:20px;
+	height:auto;
+	margin:210px auto;
+	position:relative;
+	span {
+		position:absolute;
+		top:51px;
+		right:40px;
+		font-family:'PT Sans',serif;
+		font-weight:bold;
+		color:#edac00;
+		font-size:0.8em
+	}
+	textarea {
+		height:175px;
+		width:475px;
+		background-color:#324033;
+		background:rgba(255,255,255,0.05);
+		border:none;
+		border-radius:8px;
+		padding:10px;
+		font-family:'PT Sans', serif;
+		font-size:2em;
+		color:#dedede;
+		letter-spacing:5px;
+		line-height:1.8;
+		overflow:hidden
+	}
+	h3 {
+		font-family:'BebasNeueRegular';
+		font-size:2em;
+		color:#fff;
+		padding-top:0;
+		margin:0 0 10px;
+		font-weight:normal;
+		i {
+			color:#edac00;
+			font-style:normal
+		}
+	}
+	h4 {
+		font-weight:normal;
+		margin:10px 0 0 8px;
+		color:#CCC
+	}
+	a.dgm {
+		background:#edac00;
+		background:-moz-linear-gradient(top, #edac00 0%, #e09900 100%);
+		background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #edac00), color-stop(100%, #e09900));
+		background:-webkit-linear-gradient(top, #edac00 0%, #e09900 100%);
+		background:-o-linear-gradient(top, #edac00 0%, #e09900 100%);
+		background:-ms-linear-gradient(top, #edac00 0%, #e09900 100%);
+		background:linear-gradient(to bottom, #edac00 0%, #e09900 100%);
+		display:block;
+		width:100px;
+		text-align:center;
+		float:right;
+		color:white;
+		border-radius:8px;
+		padding:8px 25px 8px 25px;
+		font-size:1.3em;
+		border:2px solid #CC8B00;
+		&:hover {
+			background:#edac00;
+			color:#fff
+		}
+		&:visited {
+			color:#fff
+		}
+	}
+	#yazitipi {
+		padding:8px 25px 8px 25px;
+		background:#fff;
+		border-radius:8px;
+		font-size:1.3em;
+		float:left;
+		color:#373737;
+		width:146px;
+		&:hover {
+			color:#707070
+		}
+		&:visited {
+			color:#373737
+		}
+	}
+}
 footer {
 	margin-top:-40px;
 	font-family:"PT Sans", sans-serif;

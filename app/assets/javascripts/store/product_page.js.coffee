@@ -1,7 +1,7 @@
 $.fn.exists = ()->
 	@length > 0
 $.fn.limit = (limit, element)->
-	alert limit + element
+	"bok"
 #$.fn.extend =
 #	limit : (limit, element) ->
 #		self = $(this)
