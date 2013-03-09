@@ -108,13 +108,13 @@ Sepet =
 			e.stopPropagation()
 			e.preventDefault()
 			$holder = $('#webfonts-tutucu');
-			id = $(this).att('href').substring 1
+			id = $(this).attr('href').substring 1
 			side = $holder.attr 'data-side'
 			line = $holder.attr 'data-line'
 			fontclass = $(this).parent().attr 'class'
 			fontname = $(this).html()
 			$('#yazitipi').html fontname
-			$('input[name="yazitipi"').val id
+			$('input[name="yazitipi"]').val id
 			$('#hedpakmesaj textarea').attr 'class', fontclass
 			$('#webfonts-tasiyici').hide()
 		$('#webfonts-tutucu .kapatdgm').click (e)->

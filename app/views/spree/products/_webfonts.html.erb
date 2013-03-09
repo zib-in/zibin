@@ -13,7 +13,7 @@
 <% content_for :head do %>
   <style type="text/css">
     <% fonts.each do |font| %>
-      .<%= font.parameterize %> {font-family:'<%= font %>', serif;}
+      .<%= font.parameterize %> {font-family:'<%= font %>', serif !important;}
     <% end %>
   </style>
 <% end %>

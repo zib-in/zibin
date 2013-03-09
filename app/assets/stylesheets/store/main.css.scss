@@ -2038,6 +2038,27 @@ nav {
 		background-position: -80px;
 	}
 }
+#hedpak-tasiyici {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:20;
+	display:none
+}
+#hedpak-onizleme {
+	background-color:#1b2a2a;
+	background:rgba(23,47,47,0.9);
+	border-radius:8px;
+	padding:20px;
+	width:760px;
+	margin:150px auto;
+	position:relative;
+	img {
+		width:100%
+	}
+}
 #hedpakmesaj-tasiyici {
 	position:absolute;
 	width:100%;
