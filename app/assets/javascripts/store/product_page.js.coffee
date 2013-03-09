@@ -114,6 +114,7 @@ Sepet =
 			fontclass = $(this).parent().attr 'class'
 			fontname = $(this).html()
 			$('#yazitipi').html fontname
+			$('#yazitipi').attr 'class', fontclass
 			$('input[name="yazitipi"]').val id
 			$('#hedpakmesaj textarea').attr 'class', fontclass
 			$('#webfonts-tasiyici').hide()
