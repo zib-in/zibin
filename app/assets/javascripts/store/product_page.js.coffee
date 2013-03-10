@@ -99,6 +99,7 @@ Sepet =
 			$('#hedpak-tasiyici').hide()
 		$('#hedpak-onizleme').click (e)->
 			e.preventDefault()
+			$(this).parent().hide()
 			e.stopPropagation()
 		$('#yazitipi').click (e)->
 			e.preventDefault()
