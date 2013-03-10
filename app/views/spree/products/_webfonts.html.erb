@@ -22,7 +22,7 @@
 <!--[if lte IE 8]>
 	<script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
 	<script>
-	<% fonts.map {|d| "#{d[0]}::latin"}.in_groups_of(4, false) do |g| %>
+	<% fonts.map {|d| "#{d[0]}::latin,latin-ext"}.in_groups_of(4, false) do |g| %>
 		<%= "WebFont.load({google:{families: #{g.to_s}}});".html_safe %>
 	<% end %>
 	</script>
@@ -30,7 +30,7 @@
 <!--[if (gt IE 8) | (!IE)]><!-->
 	<script type="text/javascript">
          WebFontConfig = {
-           google: { families: <%= fonts.map {|d| "#{d[0]}::latin"}.to_s.html_safe %> },
+           google: { families: <%= fonts.map {|d| "#{d[0]}::latin,latin-ext"}.to_s.html_safe %> },
           };
           (function() {
            var wf = document.createElement('script');
