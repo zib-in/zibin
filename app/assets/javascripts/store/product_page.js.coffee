@@ -127,8 +127,12 @@ Sepet =
 			$(this).hide()
 		$('#hedpakmesaj textarea').limit '42', $('#hedpakmesaj span')
 		id = $('input[name="yazitipi"]').val()
-		if id? then $('#hedpakmesaj textarea').attr 'class', $("#webfonts a[href='##{id}']").parent().attr 'class'
-
+		if id?
+			fontclass = $("#webfonts a[href='##{id}']").parent().attr 'class'
+			fontname = $("#webfonts a[href='##{id}']").html()
+			$('#hedpakmesaj textarea').attr 'class', fontclass
+			$('#yazitipi').attr 'class', fontclass
+			$('#yazitipi').html fontname
 Sekmeler = 
 	init: ()->
 		$('#detaylarSekme a:first').tab 'show';
