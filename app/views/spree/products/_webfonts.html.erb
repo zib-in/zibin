@@ -1,19 +1,20 @@
-<% fonts = ['Aclonica','Averia Serif Libre','Boogaloo','Candal','Cantora One','Capriola','Carter One','Chewy','Coda Caption','Comfortaa','Courgette','Creepster','Crete Round','Damion','Days One','Francois One','Fredoka One','Galindo','Gloria Hallelujah','Indie Flower','Irish Grover','Just Me Again Down Here','Leckerli One','Lobster Two','Londrina Solid','Love Ya Like A Sister','McLaren','Miniver','Piedra','Plaster','Poiret One','Quantico','Racing Sans One','Radley','Rammetto One','Revalia','Schoolbell','Smokum','Stint Ultra Condensed','Sue Ellen Francisco','Ubuntu Mono','Ultra','UnifrakturCook','Waiting for the Sunrise','Yesteryear'] %>
+<% 
+fonts = [['Ubuntu', 'sans-serif'],['Patrick Hand', 'cursive'],['Glass Antiqua', 'cursive'],['Oswald', 'sans-serif'],['Nosifer', 'cursive'],['Ribeye', 'cursive'],['Galindo', 'cursive'],['Sarina', 'cursive'],['Parisienne', 'cursive'],['Eater', 'cursive'],['New Rocker', 'cursive'],['Croissant One', 'cursive'],['Ruslan Display', 'cursive'],['Marck Script', 'cursive'],['Patrick Hand SC', 'cursive'],['Limelight', 'cursive'],['Shojumaru', 'cursive'],['Anton', 'sans-serif'],['Unica One', 'cursive'],['Great Vibes', 'cursive'],['Righteous', 'cursive'],['Comfortaa', 'cursive'],['Black Ops One', 'cursive'],['Metamorphous', 'cursive'],['Kaushan Script', 'cursive'],['MedievalSharp', 'cursive'],['Bowlby One SC', 'cursive'],['Sancreek', 'cursive'],['Ranchers', 'cursive'],['Press Start 2P', 'cursive'],['Margarine', 'cursive'],['Kavoon', 'cursive'],['McLaren', 'cursive'],['Fruktur', 'cursive'],['Freckle Face', 'cursive'],['Bree Serif', 'serif'],['Courgette', 'cursive'],['Berkshire Swash', 'cursive'],['Merienda', 'cursive'],['Sacramento', 'cursive'],['Oregano', 'cursive'],['Amarante', 'cursive'],['Titan One', 'cursive'],['Plaster', 'cursive']]
 <div id="webfonts-tutucu">
   <a class="kapatdgm" href="#"></a>
   <ul id="webfonts">
     <h2><i></i> satır İÇİn bİr yazıtİpİ seçİnİz.</h2>
     <% fonts.each_with_index do |v,k| %>
-      <li class="<%= v.parameterize %>">
-        <a href="#<%= k+3 %>"><%= v %></a>
+      <li class="<%= v[0].parameterize %>">
+        <a href="#<%= k+3 %>"><%= v[0] %></a>
       </li>
     <% end %>
   </ul>
 </div>
 <% content_for :head do %>
   <style type="text/css">
-    <% fonts.each do |font| %>
-      .<%= font.parameterize %> {font-family:'<%= font %>', serif !important;}
+    <% fonts.each do |font, generic| %>
+      .<%= font.parameterize %> {font-family:'<%= font %>', <%= generic %> !important;}
     <% end %>
   </style>
 <% end %>
@@ -21,7 +22,7 @@
 <!--[if lte IE 8]>
 	<script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
 	<script>
-	<% fonts.map {|d| "#{d}::latin"}.in_groups_of(4, false) do |g| %>
+	<% fonts.map {|d| "#{d[0]}::latin"}.in_groups_of(4, false) do |g| %>
 		<%= "WebFont.load({google:{families: #{g.to_s}}});".html_safe %>
 	<% end %>
 	</script>
@@ -29,7 +30,7 @@
 <!--[if (gt IE 8) | (!IE)]><!-->
 	<script type="text/javascript">
          WebFontConfig = {
-           google: { families: <%= fonts.map {|d| "#{d}::latin"}.to_s.html_safe %> },
+           google: { families: <%= fonts.map {|d| "#{d[0]}::latin"}.to_s.html_safe %> },
           };
           (function() {
            var wf = document.createElement('script');
