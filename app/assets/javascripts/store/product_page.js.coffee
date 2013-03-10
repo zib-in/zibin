@@ -78,7 +78,10 @@ Sepet =
 		$('#hedpakmesaj-tasiyici, #kaydet').click (e)->
 			e.preventDefault()
 			$('#hedpakmesaj-tasiyici').hide()
-			if $('#hedpakmesaj-tasiyici textarea').val isnt '' then $('#mesaj').html "Eklediğiniz mesajı düzenleyin..." else $('#mesaj').html "Bir de kişisel mesajınızı ekleyin..."
+			if $('#hedpakmesaj-tasiyici textarea').val() is '' 
+				$('#mesaj').html "Bir de kişisel mesajınızı ekleyin..." 
+			else 
+				$('#mesaj').html "Eklediğiniz mesajı düzenleyin..."
 		$('#hedpakmesaj').click (e)->
 			e.preventDefault()
 			e.stopPropagation()
