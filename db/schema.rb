@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222125460) do
+ActiveRecord::Schema.define(:version => 20130310211119) do
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -280,6 +280,8 @@ ActiveRecord::Schema.define(:version => 20130222125460) do
     t.string  "currency"
   end
 
+  add_index "spree_prices", ["variant_id"], :name => "index_spree_prices_on_variant_id"
+
   create_table "spree_product_option_types", :force => true do |t|
     t.integer  "position"
     t.integer  "product_id"
@@ -422,6 +424,7 @@ ActiveRecord::Schema.define(:version => 20130222125460) do
   end
 
   add_index "spree_shipments", ["number"], :name => "index_shipments_on_number"
+  add_index "spree_shipments", ["order_id"], :name => "index_spree_shipments_on_order_id"
 
   create_table "spree_shipping_categories", :force => true do |t|
     t.string   "name"
@@ -440,6 +443,42 @@ ActiveRecord::Schema.define(:version => 20130222125460) do
     t.datetime "deleted_at"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "spree_size_charts", :force => true do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.integer  "option_type_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "unit"
+    t.integer  "size_prototype_id"
+  end
+
+  create_table "spree_size_charts_size_types", :force => true do |t|
+    t.integer "size_chart_id"
+    t.integer "size_type_id"
+  end
+
+  create_table "spree_size_prototypes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "spree_size_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "spree_size_values", :force => true do |t|
+    t.string   "value"
+    t.integer  "option_value_id"
+    t.integer  "size_type_id"
+    t.integer  "size_chart_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "spree_skrill_transactions", :force => true do |t|

@@ -19,4 +19,5 @@ Deface::Override.new(:virtual_path => %{spree/layouts/spree_application},
 	<%= render :partial => 'spree/shared/footer' %>
 	<%= yield :belgesonu %>
 </body>
-					 	})
+					 	},
+					 	:original => %{77e1d75fe67e948d99deb620579ffaf2ac5f511f})

@@ -19,4 +19,5 @@ Deface::Override.new(:virtual_path => %{spree/shared/_nav_bar},
 		</li>
 	</ul
 </nav>					 	
-					 	})
+					 	},
+					 	:original => %{7b8b4dca34f6155872ba6ad6dfc427c1274fe312})
