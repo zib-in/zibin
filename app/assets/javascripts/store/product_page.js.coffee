@@ -1,22 +1,16 @@
 $.fn.exists = ()->
 	@length > 0
 $.fn.limit = (limit, element)->
-	"bok"
-#$.fn.extend =
-#	limit : (limit, element) ->
-#		self = $(this)
-#		$(this).focus ()->
-#			interval = window.setInterval substring, 100
-#		$(this).blur ()->
-#			clearInterval interval
-#			substring()
-#		substringFunction = "function substring(){ var val = $(self).val();var length = val.length;if(length > limit){$(self).val($(self).val().substring(0,limit));}"
-#		substringFunction += "if($(element).html() != limit-length){$(element).html((limit-length<=0)?'0':limit-length);}" if typeof element isnt 'undefined'
-#		substringFunction += "}";
-#		eval substringFunction
-#
-#		substring();
-
+	$(this).on 'keyup focus', ()->
+		setCount this, element
+	setCount = (src, elem)->
+		alert src
+		chars = src.value.length
+		if chars > limit
+			src.value = src.value.substr(0, limit)
+			chars = limit
+		elem.html limit-chars
+	setCount()
 Details = 
 	init: ()->
 		onlyNumbers '#miktar'

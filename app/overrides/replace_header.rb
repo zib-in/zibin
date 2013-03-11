@@ -8,4 +8,5 @@ Deface::Override.new(:virtual_path => %{spree/shared/_header},
 	</h1>
 	<%= render :partial => 'spree/shared/nav_bar' %>
 </header>					 	
-					 	})
+					 	},
+					 	:original => %{fe273d1ea4ee64cf9b0d97747491aa1df868dc16})

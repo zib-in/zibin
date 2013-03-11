@@ -20,4 +20,5 @@ Deface::Override.new(:virtual_path => %{spree/shared/_footer},
 			<a href="/iletisim.html" title="Bize Ulaşın">Bize Ulaşın</a>
 		</p>
 	</div>
-</footer> })
+</footer> },
+:original => %{e13993674e3d5b3ab4a3e714cf172914bd0477fd})
