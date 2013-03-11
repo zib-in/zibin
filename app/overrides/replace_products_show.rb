@@ -21,7 +21,10 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 		<form name="ekleme_formu" class="sapka" id="kontroller">
 			<fieldset>
 				<legend>Beden ÖlÇÜsÜ:</legend>
+				<% @size_chart = @product.size_chart %>
+				<% if @size_chart and !@size_chart.size_values.empty? %>
 				<a href="#" id="olcutablosudgm">ÖlÇü Tablosu</a>
+				<% end %>
 				<div class="radiobuttonlar clearfix" id="beden">
 					<div class="clearfix">
 						<button rel="1" id="1">
@@ -197,9 +200,9 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 </div>
 <div id="turuncualt">
 </div>
-<div id="olcutablosu-tasiyici">
-	<%= render :partial => 'spree/products/olcutablosu' %>
-</div>
+
+<%= render :partial => %{spree/shared/olcu_tablosu} %>
+
 <div id="webfonts-tasiyici">
 	<%= render :partial => 'spree/products/webfonts' %>
 </div>

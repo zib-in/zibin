@@ -19,6 +19,7 @@ OptionType.delete_all #Önce siliyorlar adetten.
 	:yazitipi => [['o_satir_1', 'Ön taraf birinci satır yazıtipi'],['o_satir_2', 'Ön taraf ikinci satır yazıtipi'],['o_satir_2', 'Ön taraf üçüncü satır yazıtipi'],['a_satir_1', 'Arka taraf birinci satır yazıtipi'],['a_satir_2', 'Arka taraf ikinci satır yazıtipi'],['a_satir_3', 'Arka taraf üçüncü satır yazıtipi']],
 	:yazi_rengi => [['o_satir_1', 'Ön taraf birinci satır yazı rengi'],['o_satir_2', 'Ön taraf ikinci satır yazı rengi'],['o_satir_2', 'Ön taraf üçüncü satır yazı rengi'],['a_satir_1', 'Arka taraf birinci satır yazı rengi'],['a_satir_2', 'Arka taraf ikinci satır yazı rengi'],['a_satir_3', 'Arka taraf üçüncü satır yazı rengi']],
 	:yazi_boyutu => [['o_satir_1', 'Ön taraf birinci satır yazı boyutu'],['o_satir_2', 'Ön taraf ikinci satır yazı boyutu'],['o_satir_2', 'Ön taraf üçüncü satır yazı boyutu'],['a_satir_1', 'Arka taraf birinci satır yazı boyutu'],['a_satir_2', 'Arka taraf ikinci satır yazı boyutu'],['a_satir_3', 'Arka taraf üçüncü satır yazı boyutu']],
+	:beden => [['yeni_dogan', 'Yeni Doğan'],['uc_aylik', '3 Aylık'],['alti_aylik', '6 Aylık'],['dokuz_aylik', '9 Aylık'],['oniki_aylik', '12 Aylık'],['onsekiz_aylik', '18 Aylık'],['yirmidort_aylik', '24 Aylık']]
 }.each do |k,v|
 	option_type = OptionType.create! :name => k.to_s, :presentation => k.to_s.humanize
 	if v.kind_of? Array
