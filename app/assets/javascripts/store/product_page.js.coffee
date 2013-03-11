@@ -213,7 +213,7 @@ YaziTipi =
 	setupFontholder: ()->
 		$('#webfonts-tasiyici').click ()->
 			$(this).hide()
-		$('#webfonts-tutucu').click ()->
+		$('#webfonts-tutucu').click (e)->
 		 	e.stopPropagation();
 		$('#webfonts').delegate('a', 'click', (e) ->
 			e.stopPropagation()

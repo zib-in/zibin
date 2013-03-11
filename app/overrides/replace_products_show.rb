@@ -3,17 +3,18 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 					 :name => %{replace_products_show},
 					 :replace => %{[data-hook='product_show']},
 					 :text => %{
+<% @body_id = 'urun_detayi' %>
 <div id="turuncu" class="detaylar">
 	<div id="turuncu_ap"></div>
-	<section id="detaylar" class="wrap">
-		<h1>Ürün Adı</h1>
-		<aside id="sepetbilgi">
+	<section id="detaylar" class="wrap" itemscope itemtype="http://schema.org/Product">
+		<h1 itemprop="name">Ürün Adı</h1>
+		<aside id="sepetbilgi" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 			<div class="miktar">
 				<span>Mİktar</span>
 				<input type="text" id="miktar" value="1">
 			</div>
 			<span class="x">X</span>
-			<span class="fiyat">16.00 TL</span>
+			<span class="fiyat" itemprop="price">16.00 TL</span>
 			<div class="sepet">
 				<a href="/nl/checkout/stap1.html" title="Sepet" class="ekle">Sepete Ekle</a>
 			</div>
@@ -201,7 +202,7 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 <div id="turuncualt">
 </div>
 
-<%= render :partial => %{spree/shared/olcu_tablosu} %>
+<%= render :partial => %{spree/shared/olcu_tablosu}, :size_chart => @size_chart %>
 
 <div id="webfonts-tasiyici">
 	<%= render :partial => 'spree/products/webfonts' %>

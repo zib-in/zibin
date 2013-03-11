@@ -7,3 +7,4 @@
 //= require modernizr
 //= require jquery
 //= require jquery_ujs
+//= require spree_variant_options

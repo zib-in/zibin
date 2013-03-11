@@ -7,4 +7,5 @@
  *= require normalize
  *= require_self
  *= require_tree .
+*= require spree_variant_options
 */
