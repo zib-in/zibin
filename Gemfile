@@ -41,6 +41,4 @@ gem 'spree_gateway', :github => 'spree/spree_gateway', :branch => '1-3-stable'
 gem 'spree_auth_devise', :github => 'spree/spree_auth_devise', :branch => '1-3-stable'
 gem 'unicode_utils'
 gem 'spree_size_chart', :path => 'spree_size_chart'
-
-#TO-DO
-# 1. gem'leri app icerisine al, yani; ../gem_adi değilde :path => 'gem_adi' seklinde..
+gem 'spree_variant_options', :path => 'spree_variant_options'
