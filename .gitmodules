@@ -1,0 +1,6 @@
+[submodule "spree_variant_options"]
+	path = spree_variant_options
+	url = git@github.com:zib-in/spree_variant_options.git
+[submodule "spree_size_chart"]
+	path = spree_size_chart
+	url = git@github.com:zib-in/spree_size_chart.git
