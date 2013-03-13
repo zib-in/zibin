@@ -9,23 +9,23 @@ default_attrs = {
 products = [
 	{
 		:name => "Zıbın",
-		:price => 15.99,
+		:price => 15,
 		:cost_price => 10
 	},
 	{
 		:name => "Şapka",
-		:price => 10.99,
+		:price => 10,
 		:cost_price => 10
 	},
 	{
 		:name => "Tişört",
-		:price => 17.99,
+		:price => 17,
 		:cost_price => 10
 	}
 ]
 
 products.each do |product_attr|
-	product = Spree::Product.create!(default_attrs.merge(product_attr), :without_protection => true)
+	product = Spree::Product.create(default_attrs.merge(product_attr), :without_protection => true)
 	product.reload
 	product.save!
 end
