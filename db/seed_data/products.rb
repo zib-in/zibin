@@ -9,23 +9,30 @@ default_attrs = {
 products = [
 	{
 		:name => "Zıbın",
-		:price => 15,
-		:cost_price => 10
+		:price => 19,
+		:eur_price => 10
 	},
 	{
 		:name => "Şapka",
-		:price => 10,
-		:cost_price => 10
+		:price => 19,
+		:eur_price => 10
 	},
 	{
 		:name => "Tişört",
-		:price => 17,
-		:cost_price => 10
+		:price => 19,
+		:eur_price => 10
 	}
 ]
 
 products.each do |product_attr|
-	product = Spree::Product.create(default_attrs.merge(product_attr), :without_protection => true)
+	eur_price = product_attr.delete(:eur_price)
+	Spree::Config[:currency] = "TRY"
+
+	product = Spree::Product.create!(default_attrs.merge(product_attr), :without_protection => true)
+	Spree::Config[:currency] = "EUR"
 	product.reload
+	product.price = eur_price
 	product.save!
 end
+
+Spree::Config[:currency] = "TRY"
