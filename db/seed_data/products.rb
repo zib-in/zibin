@@ -9,15 +9,18 @@ default_attrs = {
 products = [
 	{
 		:name => "Zıbın",
-		:price => 15.99
+		:price => 15.99,
+		:cost_price => 10
 	},
 	{
 		:name => "Şapka",
-		:price => 10.99
+		:price => 10.99,
+		:cost_price => 10
 	},
 	{
 		:name => "Tişört",
-		:price => 17.99
+		:price => 17.99,
+		:cost_price => 10
 	}
 ]
 

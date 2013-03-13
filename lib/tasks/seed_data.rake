@@ -4,11 +4,12 @@ require 'ffaker'
 namespace :seed_data do
 	desc 'Loads seed data'
 	task :load => :environment do
-		if ENV['FILE'].empty?
+		if ENV['FILE'].nil?
 			load_sample 'size_types'
 			load_sample 'products'
 			load_sample 'option_types'
 			load_sample 'option_values'
+			load_sample 'product_option_types'
 		else
 			load_sample ENV['FILE']
 		end

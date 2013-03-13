@@ -211,4 +211,5 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 	<%= javascript_include_tag "store/bootstrap-tab", "store/customcb", "store/social", "store/product_page" %>
 <% end %>					 	
 					 	},
-					 	:original => %{b05ac497efeeebd4464f29891fd2c4a0f60c24d9})
+					 	:original => %{b05ac497efeeebd4464f29891fd2c4a0f60c24d9},
+					 	:disabled => true)
