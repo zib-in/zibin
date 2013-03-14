@@ -4,7 +4,7 @@ option_types = [
 	{
 		:name => 'renk',
 		:presentation => 'Kumaş Rengi',
-		:position => 1
+		:position => 2
 	},
 	{
 		:name => 'beden',

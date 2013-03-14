@@ -144,35 +144,18 @@ Sekmeler =
 		$('#detaylarSekme a[href="#'+ name + '"]').tab 'show';
 RadioButtons = 
 	init: ()->
+		$()
 		$('.radiobuttonlar').each(()->
 			$element = $(this)
-			value = $element.find('input').val();
-			
-			if value isnt ''
-				RadioButtons.setValue '#' + $element.attr('id'), value 
-			else
-				RadioButtons.setValue '#' + $element.attr('id'), $element.find('button:first').attr('rel')
-			
+
+			$element.find('button:first').html "<div class='secili'></div>"
 			$element.delegate "button", "click", (e)->
 				e.preventDefault();
-				value = $(this).attr('rel')
-				$element.find('input').val value
 				$element.find('.secili').remove()
 				$(this).html "<div class='secili'></div>"
-				$element.trigger 'valuechanged.rb', value;
+				$element.trigger 'valuechanged.rb', $(this).attr('rel');
 			
 			)
-	setValue: (rb, value)->
-		$(rb+' input').val value
-		$(rb+' button').each(()->
-			if $(this).attr('rel') is value
-				$(this).html "<div class='secili'></div>"
-			else
-				$(this).html ""
-			)
-	getValue: (rb)->
-		$(rb+' input').val()
-
 Checkboxes =
 	init: ()->
 		$('.checkbox').delegate 'button', 'click', (e)->
