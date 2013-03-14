@@ -2,12 +2,13 @@
 Spree::OptionType.delete_all
 option_types = [
 	{
-		:name => 'beden',
-		:presentation => 'Beden Ölçüsü',
-		:position => 1
-	},	{
 		:name => 'renk',
 		:presentation => 'Kumaş Rengi',
+		:position => 1
+	},
+	{
+		:name => 'beden',
+		:presentation => 'Beden Ölçüsü',
 		:position => 1
 	}
 ].each do |option_types_attr|
