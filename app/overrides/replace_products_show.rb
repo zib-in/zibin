@@ -19,11 +19,17 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 				<a href="/nl/checkout/stap1.html" title="Sepet" class="ekle">Sepete Ekle</a>
 			</div>
 		</aside>
-		<%= form_for :order, :url => populate_orders_path do |f| %>
+		<%= form_for :order, :url => populate_orders_path, :html => {:id => 'kontroller'} do |f| %>
 			<% if @product.has_variants? %>
 				<% @product.grouped_option_values.each do |type, values| %>
 					<fieldset>
 						<legend><%= UnicodeUtils.upcase(type.presentation) %></legend>
+						<% @size_chart = @product.size_chart %>
+						<% if @size_chart and !@size_chart.size_values.empty? and @size_chart.option_type.id.eql? type.id%>
+						<a href="#" id="olcutablosudgm">ÖlÇü Tablosu</a>
+						<% end %>
+						<div class="radiobuttonlar clearfix" id="<%= type.presentation.downcase %>">
+						</div>
 					</fieldset>
 				<% end %>
 			<fieldset>
