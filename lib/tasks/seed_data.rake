@@ -11,6 +11,7 @@ namespace :seed_data do
 			load_sample 'option_values'
 			load_sample 'product_option_types'
 			load_sample 'variants'
+			load_sample 'size_charts'
 		else
 			load_sample ENV['FILE']
 		end
