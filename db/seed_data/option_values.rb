@@ -1,8 +1,8 @@
 # encoding: UTF-8
 Spree::OptionValue.delete_all
 
-size = Spree::OptionType.find_by_presentation!("Beden")
-color = Spree::OptionType.find_by_presentation!("Renk")
+size = Spree::OptionType.find_by_presentation!("Beden Ölçüsü")
+color = Spree::OptionType.find_by_presentation!("Kumaş Rengi")
 
 option_values = [
   {
