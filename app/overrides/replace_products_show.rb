@@ -19,7 +19,13 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 				<a href="/nl/checkout/stap1.html" title="Sepet" class="ekle">Sepete Ekle</a>
 			</div>
 		</aside>
-		<form name="ekleme_formu" class="sapka" id="kontroller">
+		<%= form_for :order, :url => populate_orders_path do |f| %>
+			<% if @product.has_variants? %>
+				<% @product.grouped_option_values.each do |type, values| %>
+					<fieldset>
+						<legend><%= UnicodeUtils.upcase(type.presentation) %></legend>
+					</fieldset>
+				<% end %>
 			<fieldset>
 				<legend>Beden ÖlÇÜsÜ:</legend>
 				<% @size_chart = @product.size_chart %>
@@ -68,6 +74,7 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 					<input type="hidden" name="kumasrengi" value="21">
 				</div>
 			</fieldset>
+			<% end %>
 			<ul class="nav nav-sekmeler" id="detaylarSekme">
 				<li class="active">
 					<a href="#on_taraf" data-toggle="tab">Ön</a>
@@ -165,7 +172,7 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 			<input type="hidden" name="prev-data-arka" id="prev-data-arka">
 			<input type="hidden" name="aantal" value="1">
 			<input type="hidden" name="productid" value="1">
-		</form>
+		<% end %>
 		<div id="onizleme_hizalama">
 			<div id="onizleme_tasiyici">
 				<div id="onizleme" class="zibin">
@@ -211,5 +218,4 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 	<%= javascript_include_tag "store/bootstrap-tab", "store/customcb", "store/social", "store/product_page" %>
 <% end %>					 	
 					 	},
-					 	:original => %{b05ac497efeeebd4464f29891fd2c4a0f60c24d9},
-					 	:disabled => true)
+					 	:original => %{b05ac497efeeebd4464f29891fd2c4a0f60c24d9})
