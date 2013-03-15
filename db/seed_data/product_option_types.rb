@@ -1,6 +1,6 @@
 # encoding: UTF-8
-size = Spree::OptionType.find_by_presentation!("Beden")
-color = Spree::OptionType.find_by_presentation!("Renk")
+size = Spree::OptionType.find_by_presentation!("Beden Ölçüsü")
+color = Spree::OptionType.find_by_presentation!("Kumaş Rengi")
 
 zibin = Spree::Product.find_by_name!("Zıbın")
 zibin.option_types = [size, color]

@@ -4,7 +4,8 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *
  
- *= require spree_variant_options
- *= require normalize
  *= require_self
+ *= require_tree .
+ *= require normalize
+ *= require main
 */

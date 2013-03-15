@@ -8,79 +8,9 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 	<div id="turuncu_ap"></div>
 	<section id="detaylar" class="wrap" itemscope itemtype="http://schema.org/Product">
 		<h1 itemprop="name">Ürün Adı</h1>
-		<aside id="sepetbilgi" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-			<div class="miktar">
-				<span>Mİktar</span>
-				<input type="text" id="miktar" value="1">
-			</div>
-			<span class="x">X</span>
-			<span class="fiyat" itemprop="price">16.00 TL</span>
-			<div class="sepet">
-				<a href="/nl/checkout/stap1.html" title="Sepet" class="ekle">Sepete Ekle</a>
-			</div>
-		</aside>
+		<%= render :partial => 'spree/shared/sepet_bilgi' %>
+		<%= render :partial => 'spree/products/form' %>
 		<%= form_for :order, :url => populate_orders_path, :html => {:id => 'kontroller'} do |f| %>
-			<% if @product.has_variants? %>
-				<% @product.grouped_option_values.each do |type, values| %>
-					<fieldset>
-						<legend><%= UnicodeUtils.upcase(type.presentation) %></legend>
-						<% @size_chart = @product.size_chart %>
-						<% if @size_chart and !@size_chart.size_values.empty? and @size_chart.option_type.id.eql? type.id%>
-						<a href="#" id="olcutablosudgm">ÖlÇü Tablosu</a>
-						<% end %>
-						<div class="radiobuttonlar clearfix" id="<%= type.presentation.downcase %>">
-						</div>
-					</fieldset>
-				<% end %>
-			<fieldset>
-				<legend>Beden ÖlÇÜsÜ:</legend>
-				<% @size_chart = @product.size_chart %>
-				<% if @size_chart and !@size_chart.size_values.empty? %>
-				<a href="#" id="olcutablosudgm">ÖlÇü Tablosu</a>
-				<% end %>
-				<div class="radiobuttonlar clearfix" id="beden">
-					<div class="clearfix">
-						<button rel="1" id="1">
-							<div class="secili"></div>
-						</button>
-						<label for="1">3-6 ay</label>
-					</div>
-					<div class="clearfix">
-						<button rel="2" id="2">
-						</button>
-						<label for="2">3-6 ay</label>
-					</div>
-					<div class="clearfix">
-						<button rel="3" id="3">
-						</button>
-						<label for="3">3-6 ay</label>
-					</div>
-					<input type="hidden" name="beden" value="1">
-				</div>
-			</fieldset>
-			<fieldset>
-				<legend>kumaŞ rengİ:</legend>
-				<div class="radiobuttonlar clearfix" id="renk">
-					<div class="clearfix secenek">
-						<button rel="21" id="21" style="background-color:#ffffff;">
-							<div class="secili"></div>
-						</button>
-						<label for="21">Beyaz</label>
-					</div>
-					<div class="clearfix secenek">
-						<button rel="30" id="30" style="background-color:#f6b7c7;">
-						</button>
-						<label for="30">Pembe</label>
-					</div>
-					<div class="clearfix secenek">
-						<button rel="35" id="35" style="background-color:#7bc0dd;">
-						</button>
-						<label for="35">Turkuaz</label>
-					</div>
-					<input type="hidden" name="kumasrengi" value="21">
-				</div>
-			</fieldset>
-			<% end %>
 			<ul class="nav nav-sekmeler" id="detaylarSekme">
 				<li class="active">
 					<a href="#on_taraf" data-toggle="tab">Ön</a>
@@ -221,7 +151,7 @@ Deface::Override.new(:virtual_path => %{spree/products/show},
 	<%= render :partial => 'spree/products/webfonts' %>
 </div>
 <% content_for :belgesonu do %>
-	<%= javascript_include_tag "store/bootstrap-tab", "store/customcb", "store/social", "store/product_page" %>
+	<%= javascript_include_tag "bootstrap-tab", "customcb", "social", "product_page", "variant" %>
 <% end %>					 	
 					 	},
 					 	:original => %{b05ac497efeeebd4464f29891fd2c4a0f60c24d9})
