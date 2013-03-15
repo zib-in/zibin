@@ -1,0 +1,38 @@
+<%= form_for :order, :url => populate_orders_path, :html => {:id => 'kontroller'} do |f| %>
+	<% if @product.has_variants? %>
+		<% @product.grouped_option_values.each do |type, values| %>
+			<fieldset>
+				<legend><%= UnicodeUtils.upcase(type.presentation, :tr) %></legend>
+				<% @size_chart = @product.size_chart %>
+				<% if @size_chart and !@size_chart.size_values.empty? and @size_chart.option_type.id.eql?(type.id) %>
+					<a href="#" id="olcutablosudgm">ÖlÇü Tablosu</a>
+				<% end %>
+				<div class="radiobuttonlar clearfix" id="<%= type.name.downcase %>">
+					<% values.sort_by(&:position).each do |value| %>
+					<div class="clearfix secenek">
+						<% button_class = type.name == "renk" ? value.name : "" %>
+						<%= button_tag "", :rel => %Q(#{type.id}-#{value.id}), :name => %Q(#{type.id}-#{value.id}), :class => button_class %>
+						<%= label_tag %Q(#{type.id}-#{value.id}), UnicodeUtils.upcase(value.presentation, :tr) %>
+					</div>
+					<% end %>
+				</div>
+			</fieldset>
+		<% end %>
+		<%= hidden_field_tag "products[#{@product.id}]", "", :id => "variant_id", :class => "hidden" %>
+		<script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function(){
+			var variant_options = new VariantOptions({
+			  options: <%== @product.variant_options_hash.to_json -%>,
+			  track_inventory_levels: <%==  !!Spree::Config[:track_inventory_levels] -%>,
+			  allow_backorders: <%==  !!Spree::Config[:allow_backorders] -%>,
+			  allow_select_outofstock: <%== !!SpreeVariantOptions::VariantConfig[:allow_select_outofstock] -%>,
+			  default_instock: <%== !!SpreeVariantOptions::VariantConfig[:default_instock] -%>,
+			  i18n: <%== {:out_of_stock => t(:out_of_stock) }.to_json -%>
+			});
+			variant_options.init()
+		})
+		//]]>
+		</script>
+	<% end %>
+<% end %>
