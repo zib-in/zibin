@@ -18,10 +18,7 @@ root.VariantOptions = (params) ->
 	init = ()->
 		$rbs = $('.radiobuttonlar')
 		$fss = $rbs.parent() #fieldsets
-		$('.radiobuttonlar').each ()->
-			$element = $ this
-			$element.on "valuechanged.rb", (e,v)->
-				find_variant()
+		inventory $rbs.find('button')
 				
 	get_variant_objects = (rel)->
 		variants = {}
@@ -39,21 +36,47 @@ root.VariantOptions = (params) ->
 						j = ids.length
 						while j--
 							obj = opv[ids[j]]
-							if obj and $.keys(obj).length and 0 <= selection.indexOf obj.id.toString() #selection ne amk?
+							if obj and $.keys(obj).length and 0 <= selection.indexOf obj.id.toString()
 								variants[obj.id = obj]
 		catch error
 			alert error
 		variants
+	inventory = (btns)->
+		sels = $.map $rbs.find('.secili'), (i)->
+			$(i).parent().attr 'rel'
+		console.log "sels => #{sels}"
+		$.each sels, (key,value)->
+			key = value.split '-'
+			v = options[key[0]][key[1]]
+			keys = $.keys(v)
+			m = Array.find_matches selection.concat keys
+			if selection.length == 0
+				selection = keys
+			else if m
+				selection = m
+		btns.removeClass('in-stock out-of-stock unavailable').each (i,element)->
+			variants = get_variant_objects $(element).attr 'rel'
+			keys = $.keys(variants)
+			if keys.length is 0
+				disable $(element).unbind 'click'
+			else if keys.length is 1
+				_var = variants[keys[0]]
+				$(element).addClass(if allow_backorders or _var.count or _var.on_demand then (if selection.length is 1 then 'in-stock auto-click' else 'in-stock') else 'out-of-stock')
+			else if allow_backorders
+				$(element).addClass 'in-stock'
+			else
+				$.each variants, (key,value) ->
+					count += (if value.on_demand then 1 else value.count)
+				$(element).addClass(if count then 'in-stock' else 'out-of-stock')
 	find_variant = ->
 		selected = $rbs.find('.secili').parent()
 		variants = get_variant_objects $(selected.get(0)).attr 'rel'
-		console.log "selected.length => #{selected.length}, $fss.length => #{$fss.length}"
 		if selected.length is $fss.length + 1
-			variant = variants[selection[0]] #selection ne amk
+			variant = variants[selection[0]]
 		else
 			prices = []
 			$.each variants, (key,value)->
-				console.log "value => #{value}" #ha burda bir sorun var, selection ile ilgili olabilir iyisi mi inventory fonksiyonunu bir ata bebek. orda yürürsün sanıyorum öptüm by.
+				console.log "value => #{value}" 
 				prices.push value.price
 			prices = $.unique(prices).sort (a,b)->
 				if to_f(a) < to_f(b) then -1 else 1
