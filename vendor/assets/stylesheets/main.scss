@@ -1364,6 +1364,12 @@ nav {
 	input {
 		border:none;
 	}
+	.in-stock {
+		background-color: #FFF;
+	}
+	.out-of-stock {
+		background-color: #000;
+	}
 }
 .checkbox {
 	button {

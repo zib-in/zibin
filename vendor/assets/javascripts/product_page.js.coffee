@@ -148,7 +148,6 @@ RadioButtons =
 		$('.radiobuttonlar').each(()->
 			$element = $(this)
 
-			$element.find('button:first').html "<div class='secili'></div>"
 			$element.delegate "button", "click", (e)->
 				e.preventDefault();
 				$element.find('.secili').remove()

@@ -1,5 +1,6 @@
 <%= form_for :order, :url => populate_orders_path, :html => {:id => 'kontroller'} do |f| %>
 	<% if @product.has_variants? %>
+		<% index = 0 %>
 		<% @product.grouped_option_values.each do |type, values| %>
 			<fieldset>
 				<legend><%= UnicodeUtils.upcase(type.presentation, :tr) %></legend>
@@ -9,14 +10,18 @@
 				<% end %>
 				<div class="radiobuttonlar clearfix" id="<%= type.name.downcase %>">
 					<% values.sort_by(&:position).each do |value| %>
-					<div class="clearfix secenek">
-						<% button_class = type.name == "renk" ? value.name : "" %>
-						<%= button_tag "", :rel => %Q(#{type.id}-#{value.id}), :name => %Q(#{type.id}-#{value.id}), :class => button_class %>
-						<%= label_tag %Q(#{type.id}-#{value.id}), UnicodeUtils.upcase(value.presentation, :tr) %>
-					</div>
+						<% classes = [] %>
+						<% unless (variants = @product.variants_for_option_value(value)).empty? %>
+							<% classes << ( Spree::Config[:allow_backorders] || variants.sum(&:count_on_hand) > 0 || variants.map(&:on_demand).include?(true) ? "in-stock" : "out-of-stock" ) if index == 0 %>
+							<div class="clearfix secenek <%=classes.join(" ")%>">
+								<%= button_tag "", :rel => %Q(#{type.id}-#{value.id}), :name => %Q(#{type.id}-#{value.id}), :class => (type.name == "renk" ? value.name : "")%>
+								<%= label_tag %Q(#{type.id}-#{value.id}), UnicodeUtils.upcase(value.presentation, :tr) %>
+							</div>
+						<% end %>
 					<% end %>
 				</div>
 			</fieldset>
+			<% index += 1 %>
 		<% end %>
 		<%= hidden_field_tag "products[#{@product.id}]", "", :id => "variant_id", :class => "hidden" %>
 		<script type="text/javascript">
