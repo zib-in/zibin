@@ -28,7 +28,7 @@
 		//<![CDATA[
 		$(document).ready(function(){
 			var variant_options = new VariantOptions({
-			  options: <%== @product.variant_options_hash.to_json -%>,
+			  options: <%== @product.variant_options_hash(current_currency).to_json -%>,
 			  master_price: "<%== @product.price_in(current_currency).display_price -%>",
 			  track_inventory_levels: <%==  !!Spree::Config[:track_inventory_levels] -%>,
 			  allow_backorders: <%==  !!Spree::Config[:allow_backorders] -%>,
