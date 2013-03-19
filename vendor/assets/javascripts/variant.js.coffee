@@ -21,107 +21,75 @@ if !Array.find_matches
 		m
 root.VariantOptions = (params) ->
 	options = params['options']
-	i18n = params['i18n'];
-	allow_backorders = !params['track_inventory_levels'] ||  params['allow_backorders'];
-	allow_select_outofstock = params['allow_select_outofstock'];
-	default_instock = params['default_instock'];
+	i18n = params['i18n']
+	allow_backorders = !params['track_inventory_levels'] ||  params['allow_backorders']
+	allow_select_outofstock = params['allow_select_outofstock']
+	default_instock = params['default_instock']
+	master_price = params['master_price']
+
+	$radiobuttons = $buttons = $secenekler = $cart_button = $variant = 0
 
 	selection = []
-	$rbs = $fss = ""
-	variant = 0
 	init = ()->
-		$rbs = $('.radiobuttonlar')
-		$fss = $rbs.parent() #fieldsets
-		toggle()
-		$rbs.on "valuechanged.rb", handle_click
+		$radiobuttons = $('.radiobuttonlar')
+		$buttons = $radiobuttons.find('button')
+		$secenekler = $radiobuttons.find('.secenek')
+		$radiobuttons.on "valuechanged.rb", handle_click
 
-		$rbs.each (key,value)->
+		$radiobuttons.each (key, element)->
 			if key is 0
-				$(value).find('button:first').click()
+				$(element).find('button:first').click()
 			else
-				$(value).find('.in-stock > button').click()
-	handle_click = (element, value)->
+				$(element).find('.secenek.in-stock > button').click()
+	handle_click = (element,value)->
+		$selected = $('.secili')
 		selection = []
-		variant = null
-		inventory()
-		toggle()
-	get_variant_objects = (rel)->
-		variants = {}
-		rel = [rel] if typeof(rel) is "string"
-		i = rel.length
-		try
-			while i--
-				ids = rel[i].split '-'
-				[otid, ovid] = ids
-				opt = options[otid]
-				if opt
-					opv = opt[ovid]
-					ids = $.keys opv
-					if opv and ids.length
-						j = ids.length
-						while j--
-							obj = opv[ids[j]]
-							if obj and $.keys(obj).length and 0 <= selection.indexOf(obj.id.toString())
-								variants[obj.id] = obj
-		catch error
-			alert error
-		variants
-	toggle = ()->
-		if(variant)
-			$('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val variant.id
-			$('#sepetbilgi .fiyat').text variant.price
-		else
-			$('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val ''
-			#STOK YOK YaNi
-	inventory = ()->
-		count = 0
-		selected = $rbs.find('.secili')
-		selected_rels = $.map selected, (element,value)->
-			return $(element).parent().attr 'rel'
-		$.each selected_rels, (key, value)->
-			key = value.split '-'
-			v = options[key[0]][key[1]]
-			console.log "v.id => #{v.id}"
-			keys = $.keys v #yukarıdan seçtin, alttan hangiler var.
-			console.log "keys => #{keys}"
-			m = Array.find_matches(selection.concat(keys))
-			console.log "selection => #{selection}"
-			console.log "m => #{m}"
-			if selection.length is 0
-				selection = keys #selection yok iken, alttaki 3 varyantı da kontrol ediyor.
-			else if m
-				selection = m
-			console.log "selection => #{selection}"
-		#<bu_fonksiyona_ait_degil>
-		rel = $(selected.get(0)).parent().attr 'rel'
-		variants = get_variant_objects rel #Sonra, variant objesini rel'e göre al.
-		$.each variants, (key,value)->
-			console.log "VARIANTS[key=>#{key}, value=>#{value.id}]"
-		variant = variants[selection[0]] #burda secili variant var, stokta olup olmadığı da içeride.
-		#</bu_fonksiyona_ait_degil>
-		$rbs.find('.secenek').removeClass('in-stock out-of-stock unavailable').prop('disabled', 0).each (key,value)->
-			$button = $(value).find('button')
-			variants = get_variant_objects $button.attr 'rel'
-			#Her buton için variant bilgisi alınıyor neden?
-			keys = $.keys variants
-			console.log "#{$(value).parent().find('label').html()} icin rel => #{$button.attr('rel')}, keys => #{keys}"
-			if keys.length is 0 #O buton seçili değil!!
-				$(value).find('.secili').remove()
-			else if keys.length is 1 #Seçili olan seçeneğin, karşı seçeneğinin düğmesi, 2 seçili varsa ilk değer seçili düğme, ikinci ikinci seçili düğme
-				_var = variants[keys[0]]
-				if allow_backorders or _var.count or _var.on_demand
-					$(value).addClass('in-stock')
-				else
-					$(value).addClass('out-of-stock')
-					$button.prop('disabled', 1)
-			else if allow_backorders
-				#Allow backorders aktifse, durumu belirt, onay iste.
-				$(value).addClass 'in-stock'
-			else #keys sayısı 1'den fazla, demek ki seçili düğmedeyiz.
-				$.each variants, (key, value)->
-					count += if value.on_demand then 1 else value.count
-				$(value).addClass(if count then 'in-stock' else 'out-of-stock')
+		if $selected.length > 1 
+			rels = $.map $selected, (i)->
+				return $(i).parent().attr('rel')
+			$.each rels, (key,value)->
+				[opt_id, opv_id] = value.split '-'
+				variant_ids = $.keys options[opt_id][opv_id]
+				_l selection
+				m = Array.find_matches selection.concat variant_ids
+				if selection.length is 0
+					selection = variant_ids
+				else if m
+					selection = m
+		[sel_opt_id, sel_opv_id] = value.split '-' #28, 175
+		variant_ids = $.keys options[sel_opt_id][sel_opv_id] #169,171,173
+		$cart_button = $('#sepetbilgi .sepet').removeClass('out-of-stock in-stock')
+		for opt_id, opt_obj of options
+			if opt_id isnt sel_opt_id
+				$("button[name^='#{opt_id}']").parent().removeClass('in-stock out-of-stock')
+				for opv_id, opv_obj of opt_obj
+					$button = $("button[name='#{opt_id}-#{opv_id}']")
+					if opv_id isnt sel_opv_id
+						for variant_id, variant_obj of opv_obj
+							if variant_id in variant_ids
+								$secenek = $button.parent()
+								if allow_backorders or variant_obj.count or variant_obj.on_demand
+									$secenek.addClass 'in-stock'
+								else
+									$secenek.addClass 'out-of-stock'
+							$variant = variant_obj if selection[0] and selection[0] is variant_id
+		if $selected.parents('.secenek').hasClass('in-stock') and $selected.length > 1 then in_stock() else out_of_stock()
+	in_stock = ()->
+		_l $variant
+		$('#sepetbilgi .fiyat').html $variant.price
+		$('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val $variant.id
+		$cart_button.addClass('in-stock')
+		$cart_button.find('a').unbind "click"
+		_l "in stock"
+	out_of_stock = ()->
+		$('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val ''
+		$('#sepetbilgi .fiyat').html master_price
+		$cart_button.addClass('out-of-stock')
+		$cart_button.find('a').bind "click", (e)->
+			e.preventDefault()
+		_l "out of stock"
+	_l = (m)->
+		console.log m
 	$(document).ready init()
 
-
-	#Sıkıntı her iki varyant seçiliyken oluyor, her ikisi de seçiliyken, in-stock, out-of stock olayları karışıyor.
+	#Refactor, tasarım etc.

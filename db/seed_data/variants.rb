@@ -5,9 +5,6 @@ Spree::Variant.all.each do |variant|
 		variant.save
 	end
 end
-zibin = Spree::Product.find_by_name 'Zıbın'
-tisort = Spree::Product.find_by_name 'Tişört'
-sapka = Spree::Product.find_by_name 'Şapka'
 
 sizes = [:yeni_dogan, :uc_aylik, :alti_aylik, :dokuz_aylik, :oniki_aylik, :onsekiz_aylik, :yirmidort_aylik].map {|a| Spree::OptionValue.find_by_name(a.to_s)}
 colours = [:beyaz, :pembe, :turkuaz].map {|a| Spree::OptionValue.find_by_name(a.to_s)}
@@ -18,10 +15,10 @@ tisort = Spree::Product.find_by_name! "Tişört"
 
 variants = []
 i = 1
-
+count = [10,5,0]
 sizes.product(colours).each do |combine|
-	variants << {:product => zibin, :option_values => combine, :sku => "ZIBIN-" + i.to_s, :cost_price => 17, :count_on_hand => 10}
-	variants << {:product => tisort, :option_values => combine, :sku => "ZIBIN-" + i.to_s, :cost_price => 17, :count_on_hand => 13}
+	variants << {:product => zibin, :option_values => combine, :sku => "ZIBIN-" + i.to_s, :cost_price => 17, :count_on_hand => count.sample()}
+	variants << {:product => tisort, :option_values => combine, :sku => "ZIBIN-" + i.to_s, :cost_price => 17, :count_on_hand => count.sample()}
 	i += 1
 end
 
