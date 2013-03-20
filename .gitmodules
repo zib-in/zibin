@@ -4,3 +4,6 @@
 [submodule "spree_variant_options"]
 	path = spree_variant_options
 	url = git@github.com:zib-in/spree_variant_options
+[submodule "spree_flexi_variants"]
+	path = spree_flexi_variants
+	url = git@github.com:zib-in/spree_flexi_variants.git

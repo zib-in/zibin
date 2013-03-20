@@ -75,18 +75,16 @@ root.VariantOptions = (params) ->
 							$variant = variant_obj if selection[0] and selection[0] is variant_id
 		if $selected.parents('.secenek').hasClass('in-stock') and $selected.length > 1 then in_stock() else out_of_stock()
 	in_stock = ()->
-		_l $variant
 		$('#sepetbilgi .fiyat').html $variant.price
 		$('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val $variant.id
 		$cart_button.addClass('in-stock')
-		$cart_button.find('a').unbind "click"
+		$cart_button.prop('disabled', 0)
 		_l "in stock"
 	out_of_stock = ()->
 		$('#variant_id, form[data-form-type="variant"] input[name$="[variant_id]"]').val ''
 		$('#sepetbilgi .fiyat').html master_price
 		$cart_button.addClass('out-of-stock')
-		$cart_button.find('a').bind "click", (e)->
-			e.preventDefault()
+		$cart_button.prop('disabled', 1)
 		_l "out of stock"
 	_l = (m)->
 		console.log m

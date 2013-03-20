@@ -42,4 +42,5 @@ gem 'spree_auth_devise', :github => 'spree/spree_auth_devise', :branch => '1-3-s
 gem 'unicode_utils'
 gem 'spree_size_chart', :path => 'spree_size_chart'
 gem 'spree_variant_options', :path => 'spree_variant_options'
+gem 'spree_flexi_variants', :path => 'spree_flexi_variants'
 gem 'thin'
